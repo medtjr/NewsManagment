@@ -1,6 +1,7 @@
-# pfe
-
-This application was generated using JHipster 3.12.2, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.12.2](https://jhipster.github.io/documentation-archive/v3.12.2).
+# News Managments
+ It's an application to manage news which are displayed on a TV
+ Only the admin who can mange news and their orders
+ It's an application  for my brother <3
 
 ## Development
 

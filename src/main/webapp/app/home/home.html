@@ -1,0 +1,12 @@
+<div ng-cloak>
+    <div class="row">
+        urgentNews:
+       <ul ng-repeat="item in vm.urgentNews">
+           <li>{{item.titre+' '+item.urgent}}</li>
+       </ul>
+        noramlNews:
+        <ul ng-repeat="item in vm.noramlNews">
+            <li>{{item.titre+' '+item.urgent}}</li>
+        </ul>
+    </div>
+</div>
