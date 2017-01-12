@@ -1,11 +1,26 @@
 package com.pfe.ahmed.service.dto;
 
-public class FileDTO {
+import java.io.Serializable;
 
+public class FileDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4059543868109255970L;
 	private String base64;
 	private String filename;
 	private String filetype;
 	private String filepath="404";
+	
+	
+	public FileDTO(String filename, String filepath) {
+		this.filename = filename;
+		this.filepath = filepath;
+	}
+
+	public FileDTO() {
+	}
 	
 	public String getBase64() {
 		return base64;
@@ -31,12 +46,6 @@ public class FileDTO {
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
-	public FileDTO(String filepath) {
-		super();
-		this.filepath = filepath;
-	}
-	
-	
 	
 	
 	

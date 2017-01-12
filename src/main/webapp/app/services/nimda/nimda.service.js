@@ -11,10 +11,10 @@
 
         var service = {
             post: post,
-            get : get
+            get : get,
+            delete : deleteNews
         };
         return service;
-
 
         function post(news) {
             return $http.post('api/nimda/news/addupdate', news)
@@ -25,26 +25,17 @@
                 });
         }
 
+        function deleteNews(id){
+            return $http.delete('api/nimda/news/delete/'+id)
+                .then(function (result) {
+                    return result;
+                }).catch(function (error) {
+                    throw error;
+                });
+        }
+
         function get() {
-//           return [
-//                {
-//                    titre:"titre1",
-//                    urgent:true,
-//                    img:"img1"
-//                },
-//                {
-//                    titre:"titre2",
-//                    urgent:true,
-//                    img:"img2"
-//                },
-//                {
-//                    titre:"titre3",
-//                    urgent:false,
-//                    img:"img3"
-//                }
-//
-//            ]
-             $http.get('nimda/news').then(function (response) {
+             return $http.get('nimda/news').then(function (response) {
                 return response.data;
             });
         }

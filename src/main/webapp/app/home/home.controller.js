@@ -14,12 +14,15 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
-        var news = Nimda.get();
-        vm.urgentNews = $filter('filter')(news, function (value) {
+        var news = Nimda.get().then(function(data){
+            //return data;
+            vm.urgentNews = $filter('filter')(data, function (value) {
                 return value.urgent;
             });
-        vm.noramlNews =$filter('filter')(news, function (value) {
-            return !value.urgent;
+            vm.noramlNews =$filter('filter')(data, function (value) {
+                return !value.urgent;
+            });
+
         });
         $scope.$on('authenticationSuccess', function() {
             getAccount();

@@ -7,7 +7,7 @@ import com.pfe.ahmed.domain.NewsModel;
 /**
  * Spring Data JPA repository for the News entity.
  */
-public interface NewsRepository extends CrudRepository<NewsModel, Long> {
+public interface NewsRepository extends CrudRepository<NewsModel, Integer> {
 
 
 

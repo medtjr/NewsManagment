@@ -38,7 +38,7 @@ public class NewsFacade {
 		newsService.createOrUpdateNews(newsReverseConverter.convert(newsDTO));
     }
 	
-    public void deleteNews(@PathVariable("id") Long id) {
+    public void deleteNews(@PathVariable("id") Integer id) {
 		
 		newsService.deleteNews(id);
     }

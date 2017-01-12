@@ -36,9 +36,9 @@ public class NewsResource {
 		newsFacade.postNews(newsDTO);
     }
 	
-	@RequestMapping(value="/api/nimda/news/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value="/api/nimda/news/delete/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
-    public void deleteNews(@PathVariable("id") Long id) {
+    public void deleteNews(@PathVariable("id") Integer id) {
 		
 		newsFacade.deleteNews(id);
     }

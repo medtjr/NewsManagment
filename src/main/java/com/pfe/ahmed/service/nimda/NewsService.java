@@ -27,7 +27,7 @@ public class NewsService {
 		 newsRepository.save(newsModel);
 	}
 	
-	public void deleteNews(Long newsID){
+	public void deleteNews(Integer newsID){
 		
 		 newsRepository.delete(newsID);
 	}

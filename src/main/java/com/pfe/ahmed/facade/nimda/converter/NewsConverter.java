@@ -1,5 +1,8 @@
 package com.pfe.ahmed.facade.nimda.converter;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +24,17 @@ public class NewsConverter extends AbstractConverter<NewsModel, NewsDTO> {
 		target.setId(source.getId());
 		target.setUrgent(isUrgent(source.getIs_urgent()));
 		target.setTitre(source.getTitre());
-		target.setImage(new FileDTO(source.getImage_path()));
+		target.setImage(new FileDTO(getFileNameFromPath(source.getImage_path()),source.getImage_path()));
 		return target;
+	}
+
+	private String getFileNameFromPath(String image_path) {
+		if (StringUtils.isNotEmpty(image_path)) {
+			
+			Path p = Paths.get(image_path);
+			return p.getFileName().toString();
+		}
+		return null;
 	}
 
 	private boolean isUrgent(String is_urgent) {

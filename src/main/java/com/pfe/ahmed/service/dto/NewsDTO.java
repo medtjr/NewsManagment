@@ -1,6 +1,8 @@
 package com.pfe.ahmed.service.dto;
 
-public class NewsDTO {
+import java.io.Serializable;
+
+public class NewsDTO implements Serializable {
 
 	private Integer id;
 	private String titre;

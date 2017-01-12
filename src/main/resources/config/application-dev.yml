@@ -87,4 +87,5 @@ jhipster:
             enabled: false
             host: localhost
             port: 5000
-            queueSize: 512
+            queueSize: 512	
+images.downloded.path: D:\\hors_projet\\bro\\src\\main\\webapp\\content\\images\\download

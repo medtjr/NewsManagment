@@ -329,6 +329,9 @@ ui bootstrap tweaks
     outline: none;
 }
 
-
+.imgDimension {
+    width: 300px;
+    height: 300px;
+}
 
 /* jhipster-needle-css-add-main JHipster will add new css style */

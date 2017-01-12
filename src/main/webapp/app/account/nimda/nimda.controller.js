@@ -17,9 +17,28 @@
         vm.login = LoginService.open;
         vm.logout = logout;
         vm.register = register;
+        vm.deleteNews = function(id){
+            Nimda.delete(id).then(function(){
+                getData();
+            });
+        };
+
+        vm.editNews = function(news){
+            Nimda.post(news).then(function(){
+                getData();
+            });
+        };
+
+        getData();
+
+        function getData() {
+            Nimda.get().then(function(data){
+                vm.news = data;
+
+            });
+        }
 
         vm.urgent=false;
-
 
         vm.submit=submit;
 
@@ -40,38 +59,18 @@
            var news={
                titre:vm.titre,
                urgent:vm.urgent,
-               img:vm.img
+               image:vm.img
            };
-           console.log(news);
-           Nimda.post(news);
+           //console.log(news);
+           Nimda.post(news).then(function(){
+               getData();
+           });
 
         }
         function register () {
             $state.go('register');
         }
 
-        $scope.uploadFiles = function(file, errFiles) {
-            $scope.f = file;
-            $scope.errFile = errFiles && errFiles[0];
-            if (file) {
-                file.upload = Upload.upload({
-                    url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-                    data: {file: file}
-                });
-
-                file.upload.then(function (response) {
-                    $timeout(function () {
-                        file.result = response.data;
-                    });
-                }, function (response) {
-                    if (response.status > 0)
-                        $scope.errorMsg = response.status + ': ' + response.data;
-                }, function (evt) {
-                    file.progress = Math.min(100, parseInt(100.0 *
-                        evt.loaded / evt.total));
-                });
-            }
-        }
 
         function logout() {
             Auth.logout();
