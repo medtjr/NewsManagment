@@ -141,3 +141,4 @@ Desktop.ini
 /src/main/webapp/bower_components/
 /src/main/webapp/bower_components/**/*
 /src/main/webapp/dist
+/src/main/webapp/content/images/download/**

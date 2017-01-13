@@ -12,7 +12,8 @@
             parent: 'app',
             url: '/',
             data: {
-                authorities: []
+                authorities: [],
+                pageTitle:'Bienvenue'
             },
             views: {
                 'content@': {

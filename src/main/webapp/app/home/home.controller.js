@@ -14,12 +14,16 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+
         var news = Nimda.get().then(function(data){
             //return data;
             vm.urgentNews = $filter('filter')(data, function (value) {
                 return value.urgent;
             });
-            vm.noramlNews =$filter('filter')(data, function (value) {
+            vm.ugNews = vm.urgentNews.map(function(elem){
+                return elem.titre;
+            }).join('. ');
+             vm.noramlNews =$filter('filter')(data, function (value) {
                 return !value.urgent;
             });
 

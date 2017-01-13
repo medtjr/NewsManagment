@@ -5,9 +5,15 @@
         .module('pfeApp')
         .controller('NimdaController', NimdaController);
 
-    NimdaController.$inject = ['$scope', 'Principal', '$timeout', 'LoginService', '$state', 'Auth','Nimda'];
+    NimdaController.$inject = ['$rootScope', '$scope', 'Principal', '$timeout', 'LoginService', '$state', 'Auth','Nimda'];
 
-    function NimdaController ($scope, Principal, $timeout, LoginService, $state, Auth, Nimda) {
+    function NimdaController ($rootScope, $scope, Principal, $timeout, LoginService, $state, Auth, Nimda) {
+
+
+        $rootScope.$on('edited', function(){
+            console.log('coming from modal');
+            getData();
+        });
 
 
         var vm = this;
@@ -18,15 +24,16 @@
         vm.logout = logout;
         vm.register = register;
         vm.deleteNews = function(id){
-            Nimda.delete(id).then(function(){
-                getData();
-            });
+            if(confirm("est vous...")){
+                Nimda.delete(id).then(function(){
+                    getData();
+                });
+            }
+
         };
 
-        vm.editNews = function(news){
-            Nimda.post(news).then(function(){
-                getData();
-            });
+        vm.editNews = function(news,type){
+            Nimda.open(news,type);
         };
 
         getData();
@@ -40,7 +47,7 @@
 
         vm.urgent=false;
 
-        vm.submit=submit;
+       // vm.submit=submit;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -55,18 +62,17 @@
             });
         }
 
-       function submit() {
+       /*function submit() {
            var news={
                titre:vm.titre,
                urgent:vm.urgent,
                image:vm.img
            };
-           //console.log(news);
            Nimda.post(news).then(function(){
                getData();
            });
 
-        }
+        }*/
         function register () {
             $state.go('register');
         }

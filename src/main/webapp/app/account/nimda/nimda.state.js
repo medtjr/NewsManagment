@@ -12,7 +12,8 @@
             parent: 'app',
             url: '/nimda',
             data: {
-                authorities: []
+                authorities: [],
+                pageTitle:'Adminstration'
             },
             views: {
                 'content@': {

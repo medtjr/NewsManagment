@@ -53,6 +53,7 @@ server:
 # ===================================================================
 # JHipster specific properties
 # ===================================================================
+spring.mvc.favicon.enabled: false
 
 jhipster:
     async:

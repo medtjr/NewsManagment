@@ -1,12 +1,17 @@
 <div ng-cloak>
     <div class="row">
         urgentNews:
-       <ul ng-repeat="item in vm.urgentNews">
-           <li>{{item.titre+' '+item.urgent}}</li>
-       </ul>
+           <marquee direction="right">{{vm.ugNews}}</marquee>
         noramlNews:
         <ul ng-repeat="item in vm.noramlNews">
             <li>{{item.titre+' '+item.urgent}}</li>
         </ul>
+        <div  id="cssSlider">
+            <div  id="sliderImages">
+                <img ng-repeat="item in vm.noramlNews" id="{{item.image.filename+''+$index}}" src="{{'content/images/download/'+item.image.filename}}" alt="{{item.image.filename}}" class="simgDimension"/>
+                <div ng-if="$index===vm.noramlNews.length-1" style="clear:left;"></div>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -40,6 +40,8 @@ public class NewsReverseConverter extends AbstractConverter<NewsDTO, NewsModel> 
 			} catch (IOException e) {
 				LOG.error(e.getMessage(),e);
 			}
+		}else{
+			target.setImage_path(image!=null?image.getFilepath():null);
 		}
 		return target;
 	}

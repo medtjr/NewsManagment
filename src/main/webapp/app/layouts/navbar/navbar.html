@@ -16,7 +16,7 @@
                 <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
                         <span>
-                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="glyphicon glyphicon-cog"></span>
                             <span class="hidden-sm">Logout</span>
                             <b class="caret"></b>
                         </span>
@@ -29,6 +29,12 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li ui-sref-active="{active: vm.$state.includes('admin')}"  ng-switch-when="true">
+                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="hidden-sm">{{vm.account.firstName +' '+vm.account.lastName}}</span>
+                    </a>
                 </li>
             </ul>
         </div>
